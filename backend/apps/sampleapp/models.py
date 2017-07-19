@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
 
-# Create your models here.
 
 class Task(models.Model):
     text = models.TextField()
@@ -18,6 +17,7 @@ class Task(models.Model):
                 i += 1
             self.slug = slug
         super(Task, self).save(*args, **kwargs)
+
 
 class Upload(models.Model):
     upload = models.FileField()

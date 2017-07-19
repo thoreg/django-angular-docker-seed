@@ -1,18 +1,13 @@
 from django.shortcuts import render
 from .models import Task
 from .serializers import TaskSerializer
-from rest_framework import generics
+from rest_framework import generics, viewsets
 
 
-class TaskList(generics.ListCreateAPIView):
+class TaskListViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
 
-
-class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
-    lookup_field = 'slug'
-    queryset = Task.objects.all()
-    serializer_class = TaskSerializer
 
 # Create your views here.
 def index(request):

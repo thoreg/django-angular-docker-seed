@@ -3,28 +3,30 @@ dbdata:
     command: "true"
 
 db:
-    extends: 
+    extends:
         file: common.yml
         service: db_base
     volumes_from:
         - dbdata
     ports:
         - "9432:5432"
-frontend:
-    build: frontend/
-    command: gulp develop
-    ports:
-        - "35729:35729"
-    volumes:
-        - "./frontend/src:/src"
-        - "./frontend/dist:/dist"
-        - "./frontend/fonts:/fonts"
-        - "./frontend/images:/images"
-        - "./frontend/package.json:/package.json"
-        - "./frontend/bower.json:/bower.json"
-        - "./frontend/Gulpfile.js:/Gulpfile.js"
+
+#frontend:
+#    build: frontend/
+#    command: gulp develop
+#    ports:
+#        - "35729:35729"
+#    volumes:
+#        - "./frontend/src:/src"
+#        - "./frontend/dist:/dist"
+#        - "./frontend/fonts:/fonts"
+#        - "./frontend/images:/images"
+#        - "./frontend/package.json:/package.json"
+#        - "./frontend/bower.json:/bower.json"
+#        - "./frontend/Gulpfile.js:/Gulpfile.js"
+
 django:
-    extends: 
+    extends:
         file: common.yml
         service: django_base
     ports:
@@ -37,3 +39,13 @@ django:
         - db
     environment:
         DJANGO_SETTINGS_MODULE: conf.settings
+
+mongo:
+    extends:
+        file: common.yml
+        service: mongodb_base
+    volumes:
+        - "./data/db:/data/db"
+    ports:
+        - "27017:27017"
+    command: mongod --smallfiles --logpath=/dev/null # --quiet

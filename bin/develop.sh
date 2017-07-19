@@ -1,5 +1,6 @@
 #!/bin/bash
-#start developemnt server on :8000
+# Start developemnt server on :8000
+set -x
 
 export DOCKER_CONFIG=${DOCKER_CONFIG:-docker-compose.yml}
 docker-compose -f $DOCKER_CONFIG build

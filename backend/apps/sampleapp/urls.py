@@ -1,7 +1,11 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import url, include
 from . import views
 
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register(r'tasks', views.TaskListViewSet)
+
 urlpatterns = [
-    url(r'^tasks/$', views.TaskList.as_view(), name='task-list'),
-    url(r'^tasks/(?P<slug>[a-zA-Z\-0-9]+)/?$', views.TaskDetail.as_view(), name='task-detail'),
+    url(r'^', include(router.urls)),
 ]

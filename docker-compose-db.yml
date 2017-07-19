@@ -3,11 +3,12 @@ dbdata:
     command: "true"
 
 db:
-    extends: 
+    extends:
         file: common.yml
         service: db_base
     volumes_from:
-        - dbdata 
+        - dbdata
+
 psql:
     image: postgres
     command: psql -h db -U django django

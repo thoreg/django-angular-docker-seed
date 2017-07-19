@@ -4,7 +4,7 @@ __pycache__/
 
 node_modules
 
-# build artifacts
+# Build Artifacts
 /frontend/dist
 /frontend/bower_components
 *sublime*
@@ -12,3 +12,9 @@ node_modules
 logs/*/*.log
 backups/*.bak
 media/*
+
+# Database stuff
+data/*
+
+# Editor config stuff
+.idea/*
