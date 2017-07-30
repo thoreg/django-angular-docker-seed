@@ -1,5 +1,6 @@
-# postgres database adapater
+# database adapater
 psycopg2==2.6.1
+pymongo==3.4.0
 
 # django framework itself
 Django==1.11.3
@@ -8,8 +9,13 @@ Django==1.11.3
 djangorestframework==3.6.3
 django-rest-swagger==2.1.2
 
-#yaml for fixtures
+# yaml for fixtures
 PyYAML==3.11
 
-#appserver
+# debugging
+ipython==5.4.1
+ipdb==0.10.3
+
+# appserver
+# 2be replaced by uwsgi in future(!)
 gunicorn==19.4.1

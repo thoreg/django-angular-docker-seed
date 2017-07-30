@@ -37,6 +37,7 @@ django:
         - "./media:/media"
     links:
         - db
+        - mongo
     environment:
         DJANGO_SETTINGS_MODULE: conf.settings
 
@@ -45,7 +46,7 @@ mongo:
         file: common.yml
         service: mongodb_base
     volumes:
-        - "./data/db:/data/db"
+        - "/usr/local/var/mongodb:/data/db"
     ports:
         - "27017:27017"
     command: mongod --smallfiles --logpath=/dev/null # --quiet
