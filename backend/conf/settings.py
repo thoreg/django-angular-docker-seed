@@ -37,6 +37,7 @@ INSTALLED_APPS = (
 
     'rest_framework',
     'rest_framework_swagger',
+    'rest_framework_mongoengine',
 
     'apps.sampleapp'
 )
@@ -118,3 +119,8 @@ MEDIA_ROOT = '/media/'
 REST_FRAMEWORK = {
     'URL_FIELD_NAME': 'slug'
 }
+
+mongoengine.connect(
+    db="tools",
+    host="localhost"
+)

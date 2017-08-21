@@ -1,6 +1,7 @@
 # database adapater
 psycopg2==2.6.1
 pymongo==3.4.0
+mongoengine==0.13.0
 
 # django framework itself
 Django==1.11.3
@@ -8,6 +9,7 @@ Django==1.11.3
 # rest framework
 djangorestframework==3.6.3
 django-rest-swagger==2.1.2
+django-rest-framework-mongoengine==3.3.1
 
 # yaml for fixtures
 PyYAML==3.11

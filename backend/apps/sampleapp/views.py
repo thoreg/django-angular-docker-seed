@@ -1,10 +1,29 @@
 from django.shortcuts import render
-from .models import Task
-from .serializers import TaskSerializer
-from rest_framework import generics, viewsets
+from .models import Task, FrontUser
+from .serializers import TaskSerializer, FrontUserSerializer
+
+from rest_framework import viewsets as drf_viewsets
+from rest_framework_mongoengine import viewsets
 
 
-class TaskListViewSet(viewsets.ModelViewSet):
+class FrontUserViewSet(viewsets.ModelViewSet):
+    lookup_field = 'id'
+    serializer_class = FrontUserSerializer
+
+    def get_queryset(self):
+        return FrontUser.objects.all()
+
+
+
+
+
+
+
+#
+# Begin original seed project
+#
+
+class TaskListViewSet(drf_viewsets.ModelViewSet):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
 

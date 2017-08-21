@@ -3,7 +3,7 @@ python: [![Dependency Status](https://www.versioneye.com/user/projects/551d7ca69
 node: [![Dependency Status](https://www.versioneye.com/user/projects/551d7ca0971f781c48000005/badge.svg?style=flat)](https://www.versioneye.com/user/projects/551d7ca0971f781c48000005)
 
 
-OnBill Plaform Backend
+OnBill Platform Backend
 ======================
 
 Setup
